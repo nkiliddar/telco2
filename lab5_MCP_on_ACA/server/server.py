@@ -11,10 +11,10 @@ mcp = FastMCP(
 
 @mcp.tool(
     name="get_circuits_by_Billing_number",
-    description="Get circuits id based on the Billing_number provided by the user.",
+    description="Get circuits info based on the Billing_number provided by the user.",
     structured_output=True
 )
-def get_circuit(name: int) -> Dict[str, Any]:
+def get_circuit(name: int | str) -> Dict[str, Any]:
     with open("circuits.json", "r") as file:
         circuits = json.load(file)
     for circuit in circuits:
@@ -25,10 +25,10 @@ def get_circuit(name: int) -> Dict[str, Any]:
 
 @mcp.tool(
     name="get_circuits_by_id",
-    description="Get circuits based on the ID provided by the user.",
+    description="Get circuits info based on the ID provided by the user.",
     structured_output=True
 )
-def get_circuit_by_id(id: int) -> Dict[str, Any]:
+def get_circuit_by_id(id: int | str) -> Dict[str, Any]:
     with open("circuits.json", "r") as file:
         circuits = json.load(file)
     for circuit in circuits:
@@ -36,51 +36,6 @@ def get_circuit_by_id(id: int) -> Dict[str, Any]:
             return circuit
     return {"error": "circuit not found"}
 
-@mcp.tool(
-    name="get_courses",
-    description="Get courses based on the title provided by the user.",
-    structured_output=True
-)
-def get_courses(title: str) -> Dict[str, Any]:
-    with open("courses.json", "r") as file:
-        courses = json.load(file)
-    matched_courses = [course for course in courses if title.lower() in course["title"].lower()]
-    return {"courses": matched_courses}
-
-@mcp.tool(
-    name="get_course_by_id",
-    description="Get course based on the ID provided by the user.",
-    structured_output=True
-)
-def get_course_by_id(id: int) -> Dict[str, Any]:
-    with open("courses.json", "r") as file:
-        courses = json.load(file)
-    for course in courses:
-        if course["id"] == id:
-            return course
-    return {"error": "Course not found"}
-
-@mcp.tool(
-    name = "get_course_by_rating",
-    description = "Get courses based on the minimum rating provided by the user.",
-    structured_output = True
-)
-def get_course_by_rating(min_rating: float) -> Dict[str, Any]:
-    with open("courses.json", "r") as file:
-        courses = json.load(file)
-    matched_courses = [course for course in courses if course["rating"] >= min_rating]
-    return {"courses": matched_courses}
-
-@mcp.tool(
-    name="get_ufb_courses",
-    description="Get all UFB courses.",
-    structured_output=True
-)
-def get_ufb_courses() -> Dict[str, Any]:
-    with open("courses.json", "r") as file:
-        courses = json.load(file)
-    ufb_courses = [course for course in courses if course.get("is_ufb")]
-    return {"ufb_courses": ufb_courses}
 
 if __name__ == "__main__":
     mcp.run(transport="streamable-http", mount_path="/mcp")
