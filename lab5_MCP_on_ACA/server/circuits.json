@@ -1,0 +1,57 @@
+[
+  {
+    "id":100G/EVC/987654/vz,
+    "Billing_number": "086421",
+    
+    "info": [
+      "customer_name": "Watertown_Public_Work",
+      "description": "IPVPN data transport.",
+      "Type": "Ethernet",
+      "100GE speed",
+      "location": "Orchard st watertown,ma 02472",
+      
+    ],
+  
+  },
+  {
+    "id": TG-24680864,
+    "Billing_number": "13579753",
+   
+    "info": [
+      "customer_name": "Watertown_Public_Work",
+      "description": "SIP Trunk Voice sessions.",
+      "Type": "SIP",
+      "SBC Type",
+      "location": "Orchard st watertown,ma 02472",
+    ],
+    
+  },
+  {
+    "id": TG-098767890,
+    "Billing_number": "123450987",
+    "description": "SIP Trunk Voice sessions.",
+    "ingredients": [
+     "customer_name": "Watertown_High_School",
+      "description": "SIP Trunk Voice sessions.",
+      "Type": "SIP",
+      "SBC Type",
+      "location": "Common St. watertown,ma 02472",
+    
+    ],
+   
+  },
+  {
+    "id": 100G/EVC/234765/vz,
+    "Billing_number": "0984258",
+    
+    "info": [
+      "customer_name": "Watertown_Public_Work",
+      "description": "IPVPN data transport.",
+      "Type": "Ethernet",
+      "100GE speed",
+      "location": "Orchard st watertown,ma 02472",
+    ],
+  
+  },
+  
+]
